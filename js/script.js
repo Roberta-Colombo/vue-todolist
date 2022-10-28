@@ -3,6 +3,7 @@ const {createApp} = Vue
 createApp({
     data() {
         return {
+            error: false,
             newTask: {
                text: '',
                done: false,
@@ -29,7 +30,13 @@ createApp({
           this.tasks.splice(index, 1);  
         },
         addTask() {
-            this.tasks.push(this.newTask);
+            if(this.newTask.text.length >= 5){
+                this.tasks.push(this.newTask);
+                this.error = false;
+            } else {
+                this.error = true;
+            }
+
             let emptyClone = {...this.newTask} 
             emptyClone.text = '';       
         },

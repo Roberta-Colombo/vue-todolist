@@ -28,7 +28,7 @@
                 <input type="text" v-model="newTask.text" @keyup.enter="addTask">
                 <button id="new-task-btn" @click="addTask">Add new task</button>
             </div>
-            <!-- <div v-if="newTask.error">You won't remember what that means. Add some more words!</div> -->
+            <div id="error-message" v-if="error">You won't remember what that means. Add some more words!</div>
         
             
 
