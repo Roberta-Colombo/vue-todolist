@@ -18,8 +18,10 @@
             <ul>
                 <li v-for="(task, index) in tasks" :key="index" :class="{ 'line-through': task.done }">
                     {{task.text}}
+                    <button @click="eraseTask(index)">&cross;</button>    
                 </li>
             </ul>
+
         </div> 
 
     </div>

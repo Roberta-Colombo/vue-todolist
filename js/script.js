@@ -19,5 +19,10 @@ createApp({
                 }
             ]
         }
+    },
+    methods: {
+        eraseTask(index) {
+          this.tasks.splice(index, 1);  
+        }
     }
 }).mount('#app')
