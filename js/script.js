@@ -3,6 +3,10 @@ const {createApp} = Vue
 createApp({
     data() {
         return {
+            newTask: {
+               text: '',
+               done: false,
+            },
             tasks: [
                 {
                     text: "Task 1",
@@ -23,6 +27,9 @@ createApp({
     methods: {
         eraseTask(index) {
           this.tasks.splice(index, 1);  
+        },
+        addTask() {
+            this.tasks.push(this.newTask);                   
         }
     }
 }).mount('#app')

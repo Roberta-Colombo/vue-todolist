@@ -4,10 +4,13 @@
     box-sizing: border-box;
 }
 
+h1 {    
+    text-align: center;
+}
+
 .container {
     margin: 30px auto;
     width: 60%;
-    text-align: center;
 }
 
 ul {
@@ -24,4 +27,24 @@ h1 {
 
 .line-through {
     text-decoration: line-through;
+}
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 80%;
+    height: 30px;
+    margin-right: 15px;
+}
+
+.addTask {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#new-task-btn {
+    padding: 5px 10px;
 }
