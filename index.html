@@ -16,15 +16,16 @@
             <h1>My To-Do List</h1>
 
             <ul>
-                <li v-for="(task, index) in tasks" :key="index" :class="{ 'line-through': task.done }">
+                <li v-for="(task, index) in tasks" :key="index" 
+                :class="{ 'line-through': task.done }" @click="changeStatus(index)">
                     {{task.text}}
                     <button @click="eraseTask(index)">&cross;</button>    
                 </li>
             </ul>
 
             <h3>Anything else?</h3>
-            <div class="addTask">
-                <input type="text" v-model="newTask.text">
+            <div class="add-new-task">
+                <input type="text" v-model="newTask.text" @keyup.enter="addTask">
                 <button id="new-task-btn" @click="addTask">Add new task</button>
             </div>
             <!-- <div v-if="newTask.error">You won't remember what that means. Add some more words!</div> -->

@@ -29,7 +29,12 @@ createApp({
           this.tasks.splice(index, 1);  
         },
         addTask() {
-            this.tasks.push(this.newTask);                   
+            this.tasks.push(this.newTask);
+            let emptyClone = {...this.newTask} 
+            emptyClone.text = '';       
+        },
+        changeStatus(index) {
+            this.tasks[index].done = !this.tasks[index].done;
         }
     }
 }).mount('#app')
