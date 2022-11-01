@@ -1,41 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Diplomata+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.41/dist/vue.global.min.js"></script>
     <title>Vue To-Do List</title>
 </head>
+
 <body>
-    
     <div id="app">
 
         <div class="container">
-            <h1>My To-Do List</h1>
+            <h1>A TRIP TO THE MOON</h1>
 
+<!-- section task già inseriti: -->
             <ul>
-                <li v-for="(task, index) in tasks" :key="index" 
-                :class="{ 'line-through': task.done }" @click="changeStatus(index)">
-                    {{task.text}}
-                    <button @click="eraseTask(index)">&cross;</button>    
-                </li>
+                <li v-for="(task, index) in tasks" :key="index">
+                    <div  :class="{ 'line-through': task.done }" @click="changeStatus(index)">{{task.text}}</div>
+                    <button id="erase-btn" @click="eraseTask(index)">&cross;</button>
+                </li>  
             </ul>
 
-            <h3>Anything else?</h3>
-            <div class="add-new-task">
-                <input type="text" v-model="newTask.text" @keyup.enter="addTask">
-                <button id="new-task-btn" @click="addTask">Add new task</button>
-            </div>
-            <div id="error-message" v-if="error">You won't remember what that means. Add some more words!</div>
-        
-            
+<!-- section aggiungi nuovi task: -->
+            <section>
+                <h3>Anything else?</h3>
+                <div class="add-new-task">
+                    <input type="text" v-model="newTask.text" @keyup.enter="addTask">
+                    <button id="new-task-btn" @click="addTask">Add new task</button>
+                </div>
+                <div id="error-message" v-if="error">You won't remember what that means.<br>
+                Add a few more words!</div>
+            </section>
 
-        </div> 
+<!-- section avvia animazioni:  -->
+            <div id="launch">
+                <span><i class="fa-solid fa-right-long"></i></span>
+                <button id="launch-btn"><a href="#moon-trip" @click="rocketEntrance">Ready? Click to launch rocket!</a></button>
+            </div>
+
+<!-- immagini decorative: -->
+            <img class="big-star" src="./img/tonight-bigStar.png" alt="Vintage star art"> 
+
+            <img class="big-star2" src="./img/tonight-bigStar.png" alt="Vintage star art">
+
+            <img class="flying-man" src="./img/tonight-moon-flyingman.png" alt="Vintage decorative art">
+
+            <img class="falling-star" src="./img/tonight-fallingStar.png" alt="Vintage falling star art">
+
+<!-- section dove avvengono le animazioni: -->
+            <section id="moon-trip">
+                <div>
+                    <img class="hidden" :class="{ 'rocket': animationActive }" src="./img/rocket-clear-bg.png" alt="Man and Woman on a rocket">
+                </div>
+
+                <div>
+                    <img class="hidden moon" :class="{ 'closed-eye': animationActive }" src="./img/closed-eye-clear-bg.png" alt="Moon with rocket in eye 1">
+                </div>
+
+                <div>
+                    <img class="hidden moon" :class="{ 'angry-moon': animationActive }" src="./img/moon-clear-bg.png" alt="Angry moon">
+                </div>
+
+                <div class="hidden" :class="{ 'credits': animationActive }">
+                    <div class="the-end">THE END</div>
+
+                    <div class="inspired-by"> 
+                        * Freely inspired by <em>"A trip to the moon"</em> by Georges Méliès, 1902<br>
+                        and <em>"Tonight, Tonight"</em> music video by The Smashing Pumpkins, 1995
+                    </div>
+                </div>
+
+            </section>      
+        </div>
 
     </div>
 
     <script src="./js/script.js"></script>
 </body>
+
 </html>

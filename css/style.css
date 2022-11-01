@@ -2,27 +2,66 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Diplomata SC', cursive;
+    background-color: #002A42;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+#app {
+    color: #E1DDC3;
 }
 
 h1 {    
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .container {
-    margin: 30px auto;
-    width: 60%;
-}
+    margin: 0 auto;
+    width: 70%;
+    padding: 50px 20px;
+} 
 
 ul {
     list-style: none;
     text-align: left;
-    border: 1px solid black;
-    padding: 20px 20px;
-    line-height: 2;
+    line-height: 2.5;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-h1 {
-    margin-bottom: 20px;
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    border-style: none;
+    color: #CBAC76;
+    background-color: transparent;
+    cursor: pointer; 
+}
+
+#launch-btn {
+    font-size: 1rem;
+}
+
+i {
+    color: #CBAC76;
+    font-size: 25px; 
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+#erase-btn {
+    margin-right: 10px;
+    margin-left: -50px;
+    font-size: 20px;
+    z-index: 1000;
 }
 
 .line-through {
@@ -30,14 +69,18 @@ h1 {
 }
 
 h3 {
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 10px;
+    font-size: 20px;
 }
 
 input {
-    width: 80%;
-    height: 30px;
+    width: 50%;
+    height: 40px;
     margin-right: 15px;
+    border-style: none;
+    background-color: #023654;
+    color: #E1DDC3;
 }
 
 .add-new-task {
@@ -46,9 +89,144 @@ input {
 }
 
 #new-task-btn {
-    padding: 5px 10px;
+    padding: 10px 10px;  
 }
 
 #error-message {
     margin-top: 20px;
+    z-index: 1000;
 }
+
+#launch {
+    margin-top: 100px;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color:#CBAC76;
+}
+
+.big-star {
+    position: absolute;
+    left: 5%;
+    top: 45%;
+    width: 7%;
+} 
+
+.big-star2 {
+    position: absolute;
+    left: 2%;
+    top: 65%;
+    width: 10%;
+}
+
+.falling-star {
+    position: absolute;
+    right: 5%;
+    top: 65%;
+    width: 250px;
+}
+
+.flying-man {
+    position: absolute;
+    right: 2%;
+    top: 4%;
+    width: 18%;
+}
+
+#moon-trip {
+    height: 100vh;
+    position: relative;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.rocket {
+    opacity: 1;
+    position: absolute;
+    width: 50%;
+    animation: rocket-entrance 3s ease-in;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    right: -20%;
+    bottom: 0vh;
+    transform: rotate(25deg);
+    transform-origin: 10% 30%;
+}
+
+@keyframes rocket-entrance {
+    from {
+        transform: translateY(0vh) rotate(25deg) translateX(0vw);
+    }
+    to {
+        transform: translateY(-50vh) rotate(25deg) translateX(-100vw);
+    }
+}
+
+.moon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.closed-eye {
+    animation: show-moon 2s linear;
+    animation-delay: 3s;
+    width: 75%;
+}
+
+@keyframes show-moon {
+    0% {
+        opacity: 0;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.angry-moon {
+    animation: toggle-display 3s linear;
+    animation-delay: 5s; 
+    width: 70%;
+}
+
+@keyframes toggle-display {
+    0% {
+        opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+.credits {
+    animation: toggle-display 6s;
+    animation-delay: 8s;
+}
+
+.the-end {
+    position: absolute;
+    font-size: 32px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #CBAC76;
+}
+
+.inspired-by {
+    position: absolute;
+    font-size: 15px;
+    line-height: 1.9;
+    bottom: 10%;
+    left: 0;
+}
+
