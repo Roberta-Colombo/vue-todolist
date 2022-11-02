@@ -38,12 +38,12 @@ createApp({
         },
         addTask() {
             if(this.newTask.text.length >= 5){
-                this.tasks.push(this.newTask);
+                this.tasks.push( {...this.newTask} );
                 this.error = false;
             } else {
                 this.error = true;
             } 
-            this.newTask = '';
+            this.newTask.text = '';
         },
         changeStatus(index) {
             this.tasks[index].done = !this.tasks[index].done;
